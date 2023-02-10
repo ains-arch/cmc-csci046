@@ -1,6 +1,8 @@
 # CSCI046: Data Structures and Algorithms
 
-<!-- editting the file -->
+message for second section
+
+<!-- created on github -->
 
 [![](smbc.png)](https://www.smbc-comics.com/comic/hansel-and-gretel)
 
@@ -188,7 +190,7 @@ Violations of any of these policies will be treated as academic integrity violat
     The benefits of this model include:
     (1) you actually learn how to develop/contribute to open source projects;
     (2) future employers see you have github activity.
-    Please do not abuse this privillage.
+    Please do not abuse this privilege.
 
 ## Accommodations Policy
 
