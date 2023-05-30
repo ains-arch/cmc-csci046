@@ -57,7 +57,7 @@
 \begin{center}
     {
 \Large
-    Quiz: Counting
+    Quiz: POSIX 3
 }
 
     %\vspace{0.1in}
@@ -68,7 +68,7 @@
 
 \vspace{0.15in}
 \noindent
-\textbf{Total Score:} ~~~~~~~~~~~~~~~/$2^2$
+\textbf{Total Score:} ~~~~~~~~~~~~~~~/$2^3$
 
 \vspace{0.2in}
 \noindent
@@ -96,93 +96,72 @@
 \end{problem}
 \begin{lstlisting}
 $ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ N=4
-$ cat > foo.py <<EOF
-count = 0
-for i in range($N):
-    for j in range($N):
-        for k in range($N):
-            count += 1
-print('count=', count)
-EOF
-$ python3 foo.py
+$ touch hello world
+$ touch hola mundo
+$ touch salve munde
+$ rm "*l?"
+$ ls | wc -l
 \end{lstlisting}
-\vspace{0.4in}
+\vspace{1in}
 
-
-\newpage
+\filbreak
 \begin{problem}
     Write the output of the final command in the following terminal session.
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
 $ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ N=4
-$ cat > foo.py <<EOF
-count = 0
-for i in range($N * 1024):
-    count += 1
-for i in range($N):
-    for j in range($N):
-        count += 1
-    count += 1
-for i in range($N):
-    count += 1
-print('count=', count)
-EOF
-$ python3 foo.py
+$ touch "hello world"
+$ touch 'hola mundo'
+$ touch salve munde
+$ for i in *; do echo "$i"; done | wc -l
 \end{lstlisting}
-\vspace{0.4in}
-
-
+\vspace{1in}
 
 \newpage
+\filbreak
 \begin{problem}
     Write the output of the final command in the following terminal session.
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
 $ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ N=4
-$ cat > foo.py <<EOF
-count = 0
-for i in range($N * 1024):
-    count += 1
-for i in range($N):
-    for j in range(i, $N):
-        count += 1
-    count += 1
-for i in range($N):
-    count += 1
-print('count=', count)
-EOF
-$ python3 foo.py
+$ git init
+$ echo evil > -a
+$ mkdir .test
+$ touch .test/'hello world'
+$ touch .test/'.salve .munde'
+$ cd .test
+$ git add .*
+$ git commit -m 'first commit'
+$ git checkout -b foo
+$ git add .
+$ git commit -m 'second commit'
+$ cd "$HOME"/quiz
+$ git checkout master
+$ ls *
 \end{lstlisting}
-\vspace{0.4in}
+\vspace{1in}
 
-
-\newpage
+\filbreak
 \begin{problem}
     Write the output of the final command in the following terminal session.
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
 $ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ N=4
-$ cat > foo.py <<EOF
-count = 0
-for i in range($N):
-    count += 1
-for i in range($N):
-    for j in range(i, $N):
-        count += 1
-    count += 1
-for i in range(2 ** $N):
-    count += 1
-print('count=', count)
-EOF
-$ python3 foo.py
+$ git init
+$ mkdir test
+$ touch test/hello world
+$ touch test/.salve .munde
+$ cd test
+$ git add .
+$ git commit -m 'first commit'
+$ git checkout -b foo
+$ git add ../*
+$ git commit -m 'second commit'
+$ git checkout master
+$ ls -a
 \end{lstlisting}
-\vspace{0.4in}
 
 \end{document}

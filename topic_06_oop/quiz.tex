@@ -57,7 +57,7 @@
 \begin{center}
     {
 \Large
-    Quiz: Counting
+    Quiz: Recursion (2)
 }
 
     %\vspace{0.1in}
@@ -68,7 +68,7 @@
 
 \vspace{0.15in}
 \noindent
-\textbf{Total Score:} ~~~~~~~~~~~~~~~/$2^2$
+\textbf{Total Score:} ~~~~~~~~~~~~~~~/$2^3$
 
 \vspace{0.2in}
 \noindent
@@ -89,26 +89,24 @@
 
 \vspace{0.15in}
 
-\filbreak
 \begin{problem}
     Write the output of the final command in the following terminal session.
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
 $ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ N=4
 $ cat > foo.py <<EOF
-count = 0
-for i in range($N):
-    for j in range($N):
-        for k in range($N):
-            count += 1
-print('count=', count)
-EOF
+def foo(xs):
+    if len(xs) > 10:
+        return 2
+    xs.append(1)
+    return 2 * foo(xs)
+try:
+    print('foo([1, 2, 3, 4])=',foo([1, 2, 3, 4]))
+except RuntimeError:
+    print('StackOverflow')
 $ python3 foo.py
 \end{lstlisting}
-\vspace{0.4in}
-
 
 \newpage
 \begin{problem}
@@ -117,24 +115,19 @@ $ python3 foo.py
 \end{problem}
 \begin{lstlisting}
 $ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ N=4
 $ cat > foo.py <<EOF
-count = 0
-for i in range($N * 1024):
-    count += 1
-for i in range($N):
-    for j in range($N):
-        count += 1
-    count += 1
-for i in range($N):
-    count += 1
-print('count=', count)
+def foo(xs):
+    if len(xs) < 0:
+        return 0
+    ret = foo(xs[1:])
+    return 1 + ret
+try:
+    print('foo([1, 2, 3, 4, 5])=', foo([1, 2, 3, 4, 5]))
+except RuntimeError:
+    print('StackOverflow')
 EOF
 $ python3 foo.py
 \end{lstlisting}
-\vspace{0.4in}
-
-
 
 \newpage
 \begin{problem}
@@ -143,23 +136,22 @@ $ python3 foo.py
 \end{problem}
 \begin{lstlisting}
 $ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ N=4
 $ cat > foo.py <<EOF
-count = 0
-for i in range($N * 1024):
-    count += 1
-for i in range($N):
-    for j in range(i, $N):
-        count += 1
-    count += 1
-for i in range($N):
-    count += 1
-print('count=', count)
+def foo(xs):
+    def go(i, acc):
+        if len(xs) <= i:
+            return acc
+        acc *= xs[i]
+        acc -= 1
+        return go(i+2, acc)
+    return go(1, 2)
+try:
+    print('foo([1, 2, 3, 4, 5])=', foo([1, 2, 3, 4, 5]))
+except RuntimeError:
+    print('StackOverflow')
 EOF
 $ python3 foo.py
 \end{lstlisting}
-\vspace{0.4in}
-
 
 \newpage
 \begin{problem}
@@ -168,21 +160,20 @@ $ python3 foo.py
 \end{problem}
 \begin{lstlisting}
 $ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ N=4
 $ cat > foo.py <<EOF
-count = 0
-for i in range($N):
-    count += 1
-for i in range($N):
-    for j in range(i, $N):
-        count += 1
-    count += 1
-for i in range(2 ** $N):
-    count += 1
-print('count=', count)
+def foo(xs):
+    if len(xs) == 0:
+        return 0
+    ret = xs[0]
+    ret -= foo(xs[2:])
+    ret += foo(xs[1:])
+    return ret
+try:
+    print('foo([1, 2, 3, 4, 5])=', foo([1, 2, 3, 4, 5]))
+except RuntimeError:
+    print('StackOverflow')
 EOF
 $ python3 foo.py
 \end{lstlisting}
-\vspace{0.4in}
 
 \end{document}

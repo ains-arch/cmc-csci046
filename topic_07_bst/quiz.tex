@@ -57,7 +57,7 @@
 \begin{center}
     {
 \Large
-    Quiz: Counting
+    Quiz: OOP (1)
 }
 
     %\vspace{0.1in}
@@ -96,93 +96,86 @@
 \end{problem}
 \begin{lstlisting}
 $ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ N=4
 $ cat > foo.py <<EOF
-count = 0
-for i in range($N):
-    for j in range($N):
-        for k in range($N):
-            count += 1
-print('count=', count)
+class Foo:
+    message = 'salve munde'
+a = Foo()
+a.message = 'hello world'
+b = Foo()
+b.message = 'hola mundo'
+try:
+    print('a.message=', a.message)
+except AttributeError:
+    print('AttributeError') 
 EOF
 $ python3 foo.py
 \end{lstlisting}
-\vspace{0.4in}
 
-
-\newpage
+\filbreak
 \begin{problem}
     Write the output of the final command in the following terminal session.
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
 $ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ N=4
 $ cat > foo.py <<EOF
-count = 0
-for i in range($N * 1024):
-    count += 1
-for i in range($N):
-    for j in range($N):
-        count += 1
-    count += 1
-for i in range($N):
-    count += 1
-print('count=', count)
+class Foo:
+    message = 'salve munde'
+    def __init__(self, message=None):
+        self.message = message
+a = Foo()
+b = Foo('hola mundo')
+try:
+    print('Foo.message=', Foo.message)
+except AttributeError:
+    print('AttributeError') 
 EOF
 $ python3 foo.py
 \end{lstlisting}
-\vspace{0.4in}
 
 
-
-\newpage
+\filbreak
 \begin{problem}
     Write the output of the final command in the following terminal session.
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
 $ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ N=4
 $ cat > foo.py <<EOF
-count = 0
-for i in range($N * 1024):
-    count += 1
-for i in range($N):
-    for j in range(i, $N):
-        count += 1
-    count += 1
-for i in range($N):
-    count += 1
-print('count=', count)
+class Foo:
+    def __init__(self, message=None):
+        if message:
+            Foo.message = message
+a = Foo('hello world')
+b = Foo()
+try:
+    print('b.message=', b.message)
+except AttributeError:
+    print('AttributeError') 
 EOF
 $ python3 foo.py
 \end{lstlisting}
-\vspace{0.4in}
 
-
-\newpage
+\vspace{1in}
+\filbreak
 \begin{problem}
     Write the output of the final command in the following terminal session.
     If the command has no output, then leave the problem blank.
 \end{problem}
 \begin{lstlisting}
 $ cd; rm -rf quiz; mkdir quiz; cd quiz
-$ N=4
 $ cat > foo.py <<EOF
-count = 0
-for i in range($N):
-    count += 1
-for i in range($N):
-    for j in range(i, $N):
-        count += 1
-    count += 1
-for i in range(2 ** $N):
-    count += 1
-print('count=', count)
+class Foo:
+    pass
+a = Foo()
+b = Foo()
+Foo.message = 'hola mundo'
+try:
+    print('a.message=', a.message)
+except AttributeError:
+    print('AttributeError') 
 EOF
 $ python3 foo.py
 \end{lstlisting}
-\vspace{0.4in}
 
 \end{document}

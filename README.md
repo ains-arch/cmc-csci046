@@ -1,7 +1,5 @@
 # CSCI046: Data Structures and Algorithms
 
-message for second section
-
 <!-- created on github -->
 
 [![](smbc.png)](https://www.smbc-comics.com/comic/hansel-and-gretel)
@@ -57,7 +55,7 @@ See:
 
 **Learning Objectives:**
 
-1. Learn basic the basics of
+1. Learn the basics of
     1. linux terminal 
     1. git
     1. open source software
